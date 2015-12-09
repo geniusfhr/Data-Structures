@@ -11,12 +11,13 @@
 *case 2: No answer
 *
 **/
+#include <stdio.h>
 
 int main(){
     int a,b,c;
     int case = 0;
     while (scanf("%d%d%d",&a,&b,&c) != EOF){
-        case++;                     //第case种情况
+        case++;                                   //第case种情况
         for(int i = 10; i<=100; i++){
             if ( i%3 == a && i%5 == b && i%7 == c){
                 printf("case %d: %d\n",case,i );
