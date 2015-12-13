@@ -23,12 +23,12 @@ void initArrayList(float (&array)[20])//num 二项式项数
     {
         array[i] = 0;
     }
-    
+
     printf("请按系数 指数的顺序输入多项式：\n");
     for (int i = 0; i<num; i++) {
         scanf("%f%d",&coef,&expn);
         array[expn] = coef;
-        
+
     }
 }
 
@@ -64,18 +64,3 @@ int main()
     add(a,b);
     show(a);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

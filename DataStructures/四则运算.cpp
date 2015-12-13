@@ -21,7 +21,7 @@ typedef int Status;;
 typedef struct{
     char oprt[20];       //操作符数组
     int top ;            //栈顶指针
-    
+
 }OprtStack;             //操作符栈
 
 
@@ -41,7 +41,7 @@ Status pop(OprtStack &s,char &c){
         printf("括号不匹配！\n");
         exit(1);
     }
-    
+
     c = s.oprt[s.top-1];
     s.top--;
     return OK;
@@ -55,10 +55,10 @@ Status push(OprtStack &s,char c){
         printf("括号不匹配！\n");
         exit(1);
     }
-    
+
     s.oprt[s.top] = c;
     s.top++;
-    
+
     return OK;
 }
 
@@ -73,11 +73,11 @@ Status pop(OpndStack &s,int &i){
         printf("括号不匹配！\n");
         exit(1);
     }
-    
+
     i = s.opnd[s.top-1];
     s.top--;
     return OK;
-    
+
 }
 
 
@@ -87,10 +87,10 @@ Status push(OpndStack &s,int i){
         printf("括号不匹配！\n");
         exit(1);
     }
-    
+
     s.opnd[s.top] = i;
     s.top++;
-    
+
     return OK;
 }
 
@@ -111,7 +111,7 @@ char operatorCompare(char o1 ,char o2){
             case '{':result = '<';break;
             case '}':result = '>';break;
             case '#':result = '>';break;
-            
+
             default:printf("输入非法字符！\n");exit(1);break;
             }
         }
@@ -161,21 +161,21 @@ char operatorCompare(char o1 ,char o2){
             case '#':result = '>';break;
             default:printf("输入非法字符！\n");exit(1);break;
         }
-        
+
     }
-    
+
     return result;
 }
 
 
 //判断当前字符是否为运算符
 int isOpnd(char c){
-    
+
     if ((c == '+')||(c == '-')||(c == '*')||(c == '/')||(c == '(')||(c == ')')||(c == '{')||(c == '}')||(c == '[')||(c == ']')||(c == '#')) {
         return 0;
     }
     else return 1;
-    
+
 }
 
 //表达式求值函数
@@ -185,26 +185,26 @@ Status caculate(){
     opndStack.top = 0;
     OprtStack oprtStack ;
     oprtStack.top = 0;
-    
+
     OprtStack brackets;         //建立括号栈  用于判断括号是否匹配
     brackets.top = 0;
-    
+
     push(oprtStack, '#');       //将栈底压入'#'字符作为表达式的开头
     printf("请输入需要计算的表达式,加'#'字符后按回车键结束.\n");
     scanf("%s",c);
     int i ;
-    for (i = 0; c[i] != '#'; i++) {                         
+    for (i = 0; c[i] != '#'; i++) {
 
         if ((c[i] == '{')||(c[i] == '(')||(c[i] == '[')) {              //
             push(brackets, c[i]);                                       //将左括号入栈
         }
         if ((c[i] == '}') ||(c[i] == ')')||(c[i] == ']')){
-            char t ;                
+            char t ;
             pop(brackets, t);                                           //与栈顶元素比较是否匹配
             if (!(((c[i] == ')')&&(t == '('))
                   ||((c[i] == '}')&&(t == '{'))
                   ||((c[i] == ']')&&(t == '[')))) {
-                
+
                 printf("括号不匹配！\n");
                 exit(1);
             }
@@ -220,18 +220,18 @@ Status caculate(){
             int temp;
             if (isOpnd(c[i])) {                                             //后一字符同为运算数
                  temp = ( (tt - '0')*10 +(c[i] -'0'));                      //组成两位数
-                 i++;//                                                     
+                 i++;//
             }else{
                 temp = tt- '0';
-               
+
             }
             push(opndStack, temp);                                          //运算数入栈
 //            printf("abc");
-            
+
         }
         else{                                                                   //当前字符为运算符
-            switch (operatorCompare(oprtStack.oprt[oprtStack.top-1], c[i])) {   //比较栈顶运算符与当前运算符优先级    
-                case '>':{                                  //栈顶元素优先级高 进行运算            
+            switch (operatorCompare(oprtStack.oprt[oprtStack.top-1], c[i])) {   //比较栈顶运算符与当前运算符优先级
+                case '>':{                                  //栈顶元素优先级高 进行运算
                     char t;
                     int a,b;
                     pop(oprtStack, t);                                          //弹出运算符栈顶元素
@@ -257,7 +257,7 @@ Status caculate(){
                             exit(1);
                             break;
                     }
-                    
+
                     push(opndStack, result);                                    //运算结果入栈
                     break;
                 }
@@ -267,22 +267,20 @@ Status caculate(){
                     break;
                 case '=':                                                       //优先级相等
                     char x;
-                    pop(oprtStack, x);                                          //为（）括号相遇 弹出栈顶括号 消去括号 
+                    pop(oprtStack, x);                                          //为（）括号相遇 弹出栈顶括号 消去括号
                     i++;                                                       //读下一个字符
                     break;
             }
         }
     }
-    
+
         printf("运算结果是：%d\n",opndStack.opnd[opndStack.top-1]);           //##相遇 循环结束运算数栈栈顶元素为运算结果
         return OK;
 }
-    
+
 
 
 int main()
 {
     caculate();
 }
-    
-

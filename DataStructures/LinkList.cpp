@@ -24,7 +24,7 @@ status LinkGet(LinkList head,int i,ElemType* e)             //用e返回第i个�
     for(int k = 1;k < i;k++)
     {
         p = p->next;                    //遍历链表 使p指向第i个元素
-        
+
     }
     *e = p->data;                       //用e返回第i个元素
     return TRUE;
@@ -38,12 +38,12 @@ status LinkInsert(LinkList head,int i ,ElemType e)      //在第i个位置之后
     {
         p = p->next;                        //p指向第i个结点  即第i个数据
     }
-    
+
     LinkList s = (LinkList)malloc(sizeof(Node));    //新建结点s
     s->data = e;
     s->next = p->next;                              //将s结点和p前后结点连接
     p->next = s;
-    
+
     return TRUE;
 }
 
@@ -89,7 +89,7 @@ status LinkCreate(LinkList head,int n)               //创建链表 头插法
         p->next = head->next;
         head->next = p;
     }
-    
+
     return TRUE;
 }
 
@@ -134,17 +134,3 @@ int main()
     LinkDelete(&Link, 5);
     LinkShow(&Link);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

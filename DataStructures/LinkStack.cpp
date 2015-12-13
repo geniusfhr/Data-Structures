@@ -26,7 +26,7 @@ status Push(LinkStack* S,ElemType e)  //将e元素压入栈
     s->data = e;
     S->top = s;
     S->count++;
-    
+
     return TRUE;
 }
 
@@ -36,15 +36,13 @@ status Pop(LinkStack* S,ElemType *e)    //将栈顶元素弹出 并以e返回
     {
         return FALSE;
     }
-    
+
     *e = S->top->data;
     Node* p = S->top;
     S->top = S->top->next;
     free(p);
     S->count--;
-    
+
     return TRUE;
 
 }
-
-

@@ -17,7 +17,7 @@ int main()
 
     s1 = PI * r * r;            //底面积
     s2 = 2 * PI * r * h;        //侧面积
-    area = a1 * 2 + s2;         //表面积 = 侧面积 + 底面积*2
+    area = s1 * 2 + s2;         //表面积 = 侧面积 + 底面积*2
 
     printf("Area = %.3f\n",area);           // .3 小数点后三位
     return 0;

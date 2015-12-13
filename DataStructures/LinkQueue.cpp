@@ -12,14 +12,14 @@ typedef struct  Node
 {
     ElemType data;
     Node* next;
-    
+
 }Node;                                      //定义结点
 
 typedef struct
 {
     Node* front;
     Node* rear;
-    
+
 }LinkQueue;                                 //LinkQueue结构体
 
 status Enqueue(LinkQueue* Q,ElemType e)     //入队列操作
@@ -29,7 +29,7 @@ status Enqueue(LinkQueue* Q,ElemType e)     //入队列操作
     s->next = NULL;
     Q->rear->next = s;
     Q->rear = s;
-    
+
     return TRUE;
 }
 
@@ -41,27 +41,11 @@ status DeQueue(LinkQueue* Q,ElemType* e)    //出队列操作
     {
         return FALSE;
     }
-    
+
     *e = Q->front->next->data ;            //释放第一个结点
     Node* p = Q->front->next;
     Q->front->next = p->next;
     free(p);
-    
+
     return TRUE;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
