@@ -78,7 +78,8 @@ printf("%3d %3d %.3f\n",max,min,sum/count );
         printf("case %d: %d %d %.3f\n",++kase,max,min,(double)sum/n );      //++kase的使用
     }
 ```
-  
+    
+    
 * **关于scanf的使用**  
 `scanf("%d%d%d",&a,&b,&c);`表示从输入缓冲区读取3个整数，分别给abc赋值，在输入的过程中会忽略回车等。  
 回车的作用是将键盘缓冲区的字符送入输入列表，一旦从输入列表中读到3个整数，scanf语句就执行完，不会再等待输入。  
