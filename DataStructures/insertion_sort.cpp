@@ -17,7 +17,7 @@ void my_insertion_sort(int* a,int n ){       //直接插入排序 从小到大
                 if(a[0] <= a[j])          //找到插入的位置 j 跳出循环
                     break;
             }
-
+  
             for(int k = i-1; k >= j; k--){      // j 到 i-1 后移一位
                 a[k+1] = a[k];
             }
