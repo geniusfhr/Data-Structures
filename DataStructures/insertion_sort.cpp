@@ -29,7 +29,7 @@ void my_insertion_sort(int* a,int n ){       //直接插入排序 从小到大
 
 //从小到大 直接插入排序
 //比较 移动同时进行
-
+//test
 void std_insertion_sort(int* a,int n ){
     for(int i = 2;i <= n; i++){      //从 2 到  n
         if(a[i] < a[i-1]){          //有必要插入
