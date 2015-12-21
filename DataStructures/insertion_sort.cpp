@@ -13,8 +13,8 @@ void insertion_sort(int* a,int n ){       //直接插入排序 从小到大
         a[0] = a[i];                     //哨兵 记录插入元素
         if(a[i] < a[i-1]){              //与有序端最后比较  需要插入
             int j;
-            for( j = 0; j <= i-1; j++){
-                if(a[0] < a[j])          //找到插入的位置 j 跳出循环
+            for( j = 1; j <= i-1; j++){
+                if(a[0] <= a[j])          //找到插入的位置 j 跳出循环
                     break;
             }
 
