@@ -16,7 +16,7 @@ void isPrimer(int n) {
     }
     printf("%d是质数！\n",n);                       //结束循环 没有因数
     return ;
-}
+}  
 
 int main(){
 
