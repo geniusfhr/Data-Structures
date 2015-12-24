@@ -24,7 +24,7 @@ void exchange(int& a,int& b){
 }
 
 //bubble sort func
-void bubble_sort(int* array,n){
+void bubble_sort(int* array,int n){
     for(int i = n-1; i >= 1; i--){
         for(int j = 1;j <= i;j++){
             if(compare(array[j],array[j+1])){
