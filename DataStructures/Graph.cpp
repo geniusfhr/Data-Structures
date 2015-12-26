@@ -1,9 +1,10 @@
 /*
- *
- *BinaryInsertionSort.cpp
- *折半查找排序
- * 从小到大
- */
+*Graph.cpp
+*图的定义 搜索
+*BFS breadth_first_search 广度优先搜索算法 使用辅助队列Queue
+*DFS depth_first_search 深度优先搜素算法
+*2015-12-26
+*/
 
 
 #include <stdio.h>
@@ -25,7 +26,9 @@ typedef struct {
     int numEdges;           //边数
 }Graph;             //定义图 结构类型
 
-/**********************************************************************/
+/*********************************************************************************/
+//BFS中使用辅助队列  Queue结构
+
 typedef struct {         //Queue结构体
     int data[MAXSIZE];          //数据域
     int currentSize;           //当前长度
@@ -69,7 +72,7 @@ Status Dequeue(MyQueue& Q,int& e){
     return OK;
 }
 
-/*********************************************************************/
+/******************************************************************************/
 
 //邻接矩阵的创建
 //无向图
@@ -173,7 +176,7 @@ Status breadth_first_search(Graph& g){
     return OK;
 }
 
-
+//main func
 int main(){
     Graph g;
     create_graph(g);
@@ -181,16 +184,5 @@ int main(){
     DFSTraversal(g);
     printf("\n广度优先搜索如下:\n");
     breadth_first_search(g);
-    return 0;
-}
-
-
-
-
-//main func
-int main(){
-    Graph g;
-    create_graph(g);
-    DFSTraversal(g);
     return 0;
 }
