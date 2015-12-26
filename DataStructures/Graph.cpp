@@ -8,7 +8,6 @@
 
 
 #include <stdio.h>
-#include <queue>
 
 #define INFINITY 9999           //无穷大
 #define OK 1
