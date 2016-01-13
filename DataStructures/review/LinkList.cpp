@@ -92,6 +92,18 @@ Status deleteLinkList(LinkList& L,int location){
 }
 
 
+
+//搜索链表中第location个元素 以e返回
+Status searchLinkList(LinkList L,int location,int& e){
+    LinkList p = L;
+    for(int i = 1; i <= location ; i++){
+        p = p->next;
+    }
+    e = p->data;
+    return OK;
+}
+
+
 Status showLinkList(LinkList L){
     LinkList p = L;
     while(p){                       //当前指针不空

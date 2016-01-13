@@ -29,6 +29,7 @@ Status initArrayList(ArrayList& L);
 Status insertArrayList(ArrayList& L,int e,int location);
 Status deleteArrayList(ArrayList& L,int location);
 Status showArrayList(ArrayList L);
+Status searchArrayList(ArrayList L,int loction,int& e);
 
 ***************************************************/
 
@@ -78,6 +79,17 @@ Status deleteArrayList(ArrayList& L,int location){
     return OK;
 
 }
+
+//搜索 第location个元素 并以e返回
+Status searchArrayList(ArrayList L,int loction,int& e){
+    if(e > L.length){
+        return ERROR;
+    }
+    e = L.elem[location-1];         //以e返回第location个元素
+    return OK;
+
+}
+
 
 Status showArrayList(ArrayList L){
     for(int i = 1;i <= L.length; i++){
